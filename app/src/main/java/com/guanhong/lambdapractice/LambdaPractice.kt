@@ -6,14 +6,14 @@ val listLambda = { element: String -> Unit
     println(element)
 }
 
-fun <GuanHong> List<GuanHong>.GuanHongForEach(_: (GuanHong) -> Unit){
+fun <GuanHong> List<GuanHong>.GuanHongForEach(function: (GuanHong) -> Unit) {
 
     for (element in this) {
         println(element)
     }
 }
 
-fun begin() {
+fun listPractice() {
 
     for (element in stringList) {
         println(element)
@@ -41,5 +41,21 @@ fun begin() {
         println(it)
     }
 
-    stringList.forEach(::println)
+    stringList.GuanHongForEach(::println)
 }
+
+fun infix() {
+
+    val lambdaPractice = LambdaPractice()
+
+    val addOneToString = { a: Int -> (a + 1).toString() }
+
+    infix fun LambdaPractice.andThenInfix(op: ((Int) -> String)): String {
+        return op(0)
+    }
+
+    lambdaPractice.andThenInfix(addOneToString)
+    lambdaPractice andThenInfix addOneToString
+}
+
+class LambdaPractice {}
