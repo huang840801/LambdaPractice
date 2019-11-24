@@ -1,7 +1,8 @@
 package com.guanhong.lambdapractice
 
 val stringList = listOf("a", "b", "c")
-val listLambda = { element: String -> Unit
+val listLambda = { element: String ->
+    Unit
 
     println(element)
 }
@@ -57,5 +58,17 @@ fun infix() {
     lambdaPractice.andThenInfix(addOneToString)
     lambdaPractice andThenInfix addOneToString
 }
+
+fun typeAlias() {
+
+    fun myType.test(op: ((myType) -> Int)): myType {
+
+        return {
+           op(this)
+        }
+    }
+}
+
+typealias myType = (Int) -> Int
 
 class LambdaPractice {}
