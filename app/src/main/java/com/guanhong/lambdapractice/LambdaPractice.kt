@@ -1,6 +1,6 @@
 package com.guanhong.lambdapractice
 
-val stringList = listOf("a", "b", "c")
+val stringList = listOf("AAA", "BBB", "CCC")
 val listLambda = { element: String ->
     Unit
 
@@ -72,3 +72,15 @@ fun typeAlias() {
 typealias myType = (Int) -> Int
 
 class LambdaPractice {}
+
+fun <T> List<T>.myForEachIndex(params: (index: Int, T) -> Unit) {
+
+    var index = 0
+
+    for (element in this) {
+
+        params(index, element)
+
+        index++
+    }
+}
